@@ -16,7 +16,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh "mvn -version"
-                sh "mvn clean compile"
+                sh "mvn clean package"
             }
         }
 
@@ -24,6 +24,16 @@ pipeline {
             steps {
                  
                 sh "mvn test"
+            }
+        }
+
+        stage("jococo") {
+            Script {
+             ,,,
+            jacoco execPattern: '**/**', maximumBranchCoverage: '50', maximumClassCoverage: '80', 
+            maximumComplexityCoverage: '50', maximumLineCoverage: '80', maximumMethodCoverage: '80', 
+            minimumBranchCoverage: '50', minimumComplexityCoverage: '50', sourceInclusionPattern: '**/*.java'
+           ,,,
             }
         }
     }
