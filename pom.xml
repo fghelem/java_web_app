@@ -27,6 +27,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency> 
+			<groupId>org.jacoco</groupId> 
+			<artifactId>org.jacoco.ant</artifactId> 
+			<version>0.7.4.201502262128</version> 
+		</dependency>
 	</dependencies>
 
 	<build>
