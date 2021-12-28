@@ -28,10 +28,12 @@ pipeline {
         }
 
         stage("jococo") {
+            steps {
             Script {
             
            sh "jacoco execPattern: '**/**', maximumBranchCoverage: '50', maximumClassCoverage: '80', maximumComplexityCoverage: '50', maximumLineCoverage: '80', maximumMethodCoverage: '80', minimumBranchCoverage: '50', minimumComplexityCoverage: '50', sourceInclusionPattern: '**/*.java'"
           
+            }
             }
         }
     }
