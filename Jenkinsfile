@@ -13,17 +13,10 @@ pipeline {
                   checkout scm
              }   
         }
-        stage("Build") {
+        stage("Clean") {
             steps {
                 sh "mvn -version"
-                sh "mvn clean package"
-            }
-        }
-
-        stage("test") {
-            steps {
-                 
-                sh "mvn test"
+                sh "mvn clean"
             }
         }
 
@@ -36,6 +29,21 @@ pipeline {
             }
             }
         }
+        stage("Build") {
+            steps {
+                sh "mvn -version"
+                sh "mvn  package"
+            }
+        }
+
+        stage("test") {
+            steps {
+                 
+                sh "mvn test"
+            }
+        }
+
+        
     }
 
     post {
