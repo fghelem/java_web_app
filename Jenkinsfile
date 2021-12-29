@@ -20,18 +20,22 @@ pipeline {
             }
         }
 
-        stage("jococo") {
+       
+        stage("Build") {
+            steps {
+                sh "mvn -version"
+                sh "mvn  package"
+            }
+        }
+
+        
+        
+         stage("jococo") {
             steps {
             script {
             jacoco()
            
             }
-            }
-        }
-        stage("Build") {
-            steps {
-                sh "mvn -version"
-                sh "mvn  package"
             }
         }
 
@@ -41,7 +45,6 @@ pipeline {
                 sh "mvn test"
             }
         }
-
         
     }
 
